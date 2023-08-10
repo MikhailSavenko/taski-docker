@@ -16,7 +16,7 @@ class TaskiAPITestCase(TestCase):
 
     def test_task_creation(self):
         """Проверка создания задачи."""
-        data = {'title': 'Test', 'description': 'Test'}
+        data = {"title": 'Test', 'description': 'Test'}
         response = self.guest_client.post('/api/tasks/', data=data)
         self.assertEqual(response.status_code, HTTPStatus.CREATED)
         self.assertTrue(models.Task.objects.filter(title='Test').exists())
